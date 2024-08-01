@@ -8,7 +8,6 @@ local options = {
     shiftwidth     = 4,                       -- Set tab to 4 spaces
     expandtab      = true,                    -- Use spaces instead of tabs
     smartindent    = true,                    -- Enable smart indenting
-    showtabline    = 2,                       -- Always show tabs
     number         = true,                    -- Show lines numbers
     relativenumber = true,                    -- Show relative lines numbers
     signcolumn     = 'yes:1',                 -- Add an extra line column

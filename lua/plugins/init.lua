@@ -24,5 +24,12 @@ return {
         config = function()
             require('nvim-autopairs').setup {}
         end
+    },
+    {
+        'leath-dub/snipe.nvim',
+        lazy = false,
+        config = function()
+            require('plugins.snipe')
+        end
     }
 }
