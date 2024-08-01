@@ -6,6 +6,10 @@ autocmd('LspAttach', {
         local bufnr = args.buf
         local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-        vim.lsp.completion.enable(true, client.id, bufnr)
+        if client == nil then
+            return
+        end
+
+        vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
     end
 })

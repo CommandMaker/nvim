@@ -19,3 +19,6 @@ key('i', '<C-l>', '<Right>', silent)
 
 -- File searching
 key('n', '<C-p>', ':Telescope find_files<CR>', silent)
+
+-- Trigger autocomplete with Ctrl+Space
+key('i', '<C-Space>', '<C-x><C-o>', silent)
