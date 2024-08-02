@@ -60,4 +60,29 @@ return {
             require('hardtime').setup {}
         end
     },
+    -- Class structure / Diagnostics and more
+    {
+        'folke/trouble.nvim',
+        lazy = false,
+        config = function()
+            require('plugins.trouble')
+        end
+    },
+    -- RipGrep support
+    {
+        'duane9/nvim-rg',
+        lazy = false,
+        config = false
+    },
+    -- Xcode support
+    {
+        'wojciech-kulik/xcodebuild.nvim',
+        dependencies = {
+            'nvim-telescope/telescope.nvim',
+            'stevearc/oil.nvim'
+        },
+        config = function()
+            require('xcodebuild').setup {}
+        end,
+    }
 }

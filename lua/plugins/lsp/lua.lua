@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.lsp.start({
             name = 'lua_language_server',
             cmd = { 'lua-language-server', '--stdio' },
-            root_dir = root_dir[1],
+            root_dir = root_dir[1]:sub(0, -(root_dir[1]:match('[^/\\]+$'):len() + 1)),
             settings = {
                 Lua = {
                     runtime = {
