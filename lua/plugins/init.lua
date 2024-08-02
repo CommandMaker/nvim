@@ -1,7 +1,6 @@
 return {
     {
         'folke/tokyonight.nvim',
-        lazy = false,
         priority = 1000,
         config = function()
             vim.cmd[[colorscheme tokyonight]]
@@ -11,7 +10,6 @@ return {
     -- File Manager
     {
         'stevearc/oil.nvim',
-        lazy = false,
         dependencies = { { 'echasnovski/mini.icons', opts = {} } },
         config = function ()
             require('plugins.filemanager')
@@ -20,15 +18,13 @@ return {
     -- Autopair brackets, quotes, ...
     {
         'windwp/nvim-autopairs',
-        lazy = false,
         config = function()
-            require('nvim-autopairs').setup {}
+            require('plugins.autopairs')
         end
     },
     -- Buffer switcher
     {
         'leath-dub/snipe.nvim',
-        lazy = false,
         config = function()
             require('plugins.snipe')
         end
@@ -37,7 +33,6 @@ return {
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        lazy = false,
         config = function()
             require('plugins.statusbar')
         end
@@ -46,7 +41,6 @@ return {
     {
         'nvim-telescope/telescope.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' },
-        lazy = false,
         config = function()
             require('plugins.telescope')
         end
@@ -55,7 +49,6 @@ return {
     {
         'm4xshen/hardtime.nvim',
         dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
-        lazy = false,
         config = function()
             require('hardtime').setup {}
         end
@@ -63,7 +56,6 @@ return {
     -- Class structure / Diagnostics and more
     {
         'folke/trouble.nvim',
-        lazy = false,
         config = function()
             require('plugins.trouble')
         end
@@ -71,7 +63,6 @@ return {
     -- RipGrep support
     {
         'duane9/nvim-rg',
-        lazy = false,
         config = false
     },
     -- Xcode support
@@ -84,5 +75,28 @@ return {
         config = function()
             require('xcodebuild').setup {}
         end,
+    },
+    -- Treesitter
+    {
+        'nvim-treesitter/nvim-treesitter',
+        event = 'BufReadPre',
+        cmd = 'TSUpdate',
+        config = function()
+            require('plugins.treesitter')
+        end
+    },
+    -- Improved navigation inside the current line
+    {
+        'folke/flash.nvim',
+        event = 'BufEnter',
+        opts = {
+            char = {
+                keys = { "f", "F", "t", "T" },
+            }
+        },
+        keys = {
+            { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,   desc = "Flash" },
+            { "r", mode = "o",               function() require("flash").remote() end, desc = "Remote Flash" },
+        },
     }
 }

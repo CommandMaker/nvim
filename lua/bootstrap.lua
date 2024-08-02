@@ -23,7 +23,6 @@ vim.g.maplocalleader = '\\'
 
 require('lazy').setup('plugins.init', {
     defaults = {
-        lazy = true,
         opts = {}
     },
     -- Install default colorscheme

@@ -28,3 +28,19 @@ autocmd('BufWritePre', {
         vim.cmd[[%s/\s\+$//e]]
     end
 })
+
+-- Save and load folds
+augroup('FoldsSave', { clear = true })
+autocmd('BufWinLeave', {
+    group = 'FoldsSave',
+    pattern = '*.*',
+    desc = 'save view (folds), when closing file',
+    command = 'mkview',
+})
+
+autocmd('BufWinEnter', {
+    pattern = '*.*',
+    group = 'FoldsSave',
+    desc = 'load view (folds), when opening file',
+    command = 'silent! loadview'
+})
