@@ -6,6 +6,7 @@ end
 
 snipe.setup {
     ui = {
-        position = 'cursor'
-    }
+        position = 'cursor',
+    },
+    sort = 'last'
 }

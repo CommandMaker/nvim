@@ -24,7 +24,7 @@ return {
     },
     -- Buffer switcher
     {
-        'leath-dub/snipe.nvim',
+        'CommandMaker/snipe.nvim',
         config = function()
             require('plugins.snipe')
         end
@@ -68,6 +68,7 @@ return {
     -- Xcode support
     {
         'wojciech-kulik/xcodebuild.nvim',
+        enabled = vim.fn.has('macunix'),
         dependencies = {
             'nvim-telescope/telescope.nvim',
             'stevearc/oil.nvim'

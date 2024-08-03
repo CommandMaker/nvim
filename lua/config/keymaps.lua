@@ -25,6 +25,9 @@ key('c', '<C-l>', '<Right>', silent)
 -- File searching
 key('n', '<C-p>', ':Telescope find_files<CR>', silent)
 
+-- Search through Neovim help
+key('n', '<C-&>', ':Telescope help_tags<CR>', silent)
+
 -- Trigger autocomplete with Ctrl+Space
 key('i', '<C-Space>', '<C-x><C-o>', silent)
 
