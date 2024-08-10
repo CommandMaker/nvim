@@ -5,5 +5,8 @@ if not status then
 end
 
 ts.setup {
-    ensure_installed = { 'c', 'cpp', 'swift', 'html', 'css', 'javascript', 'typescript' }
+    ensure_installed = { 'c', 'cpp', 'swift', 'html', 'css', 'javascript', 'typescript' },
+    highlight = {
+        enable = true
+    }
 }

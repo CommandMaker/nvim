@@ -18,13 +18,14 @@ return {
     -- Autopair brackets, quotes, ...
     {
         'windwp/nvim-autopairs',
+        event = 'InsertEnter',
         config = function()
             require('plugins.autopairs')
         end
     },
     -- Buffer switcher
     {
-        'CommandMaker/snipe.nvim',
+        'leath-dub/snipe.nvim',
         config = function()
             require('plugins.snipe')
         end
@@ -90,14 +91,20 @@ return {
     {
         'folke/flash.nvim',
         event = 'BufEnter',
-        opts = {
-            char = {
-                keys = { 'f', 'F', 't', 'T' },
-            }
-        },
         keys = {
             { 's', mode = { 'n', 'x', 'o' }, function() require('flash').jump() end,   desc = 'Flash' },
             { 'r', mode = 'o',               function() require('flash').remote() end, desc = 'Remote Flash' },
         },
+        config = function()
+            require('plugins.flashsearch')
+        end
+    },
+    -- LSP Snippets support
+    {
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp"
     }
 }

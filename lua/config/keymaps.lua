@@ -31,6 +31,9 @@ key('n', '<C-&>', ':Telescope help_tags<CR>', silent)
 -- Trigger autocomplete with Ctrl+Space
 key('i', '<C-Space>', '<C-x><C-o>', silent)
 
+-- Close omnifunc and go to next line when enter is pressed
+key('i', '<CR>', 'pumvisible() ? "<C-e><CR>" : "<CR>"', { expr = true, silent = true })
+
 -- Exit terminal mode with escape (because default mapping is not working on my macOS)
 key('t', '<ESC>', '<C-\\><C-n>', silent)
 
@@ -62,3 +65,10 @@ key('i', '<C-$>', '<C-o>$', silent)
 -- Resize the current split
 key('n', '<C-=>', ':vert resize +10<CR>', silent)
 key('n', '<C-+>', ':vert resize -10<CR>', silent)
+
+-- LSP keymaps
+key('n', 'gd', ':Telescope lsp_definitions<CR>', silent)
+key('n', 'gz', ':lua vim.diagnostic.open_float()<CR>', silent)
+key('n', 'ga', ':lua vim.lsp.buf.code_action()<CR>', silent)
+key('n', 'gf', ':lua vim.lsp.buf.format()<CR>', silent)
+key('n', 'gr', ':lua vim.lsp.buf.rename()<CR>', silent)

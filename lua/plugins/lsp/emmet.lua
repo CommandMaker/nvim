@@ -3,11 +3,11 @@ vim.api.nvim_create_autocmd('FileType', {
     group = 'UserLSP',
     pattern = { 'css', 'eruby', 'html', 'htmldjango', 'javascriptreact', 'less', 'pug', 'sass', 'scss', 'typescriptreact', 'htmlangular' },
     desc = 'emmet_language_server',
-    callback = function(event)
+    callback = function()
         local root_dir = vim.fs.find('.git', { upward = true, stop = vim.env.HOME })
 
         if root_dir[1] == nil then
-            return
+            root_dir = {vim.fn.expand('%:p:h')}
         end
 
         vim.lsp.start({

@@ -7,13 +7,13 @@ vim.api.nvim_create_autocmd('FileType', {
         local root_dir = vim.fs.find({ '.luarc.json', '.luarc.jsonc', '.luacheckrc', '.stylua.toml', 'stylua.toml', 'selene.toml', 'selene.yml', '.git' }, { upward = true, stop = vim.env.HOME })
 
         if root_dir[1] == nil then
-            return
+            root_dir = { vim.fn.expand('%') }
         end
 
         vim.lsp.start({
             name = 'lua_language_server',
             cmd = { 'lua-language-server', '--stdio' },
-            root_dir = root_dir[1]:sub(0, -(root_dir[1]:match('[^/\\]+$'):len() + 1)),
+            root_dir = vim.fs.dirname(root_dir[1]),
             settings = {
                 Lua = {
                     runtime = {

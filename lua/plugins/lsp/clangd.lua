@@ -14,13 +14,13 @@ vim.api.nvim_create_autocmd('FileType', {
         }, { upward = true, limit = vim.env.HOME })
 
         if root_dir[1] == nil then
-            return
+            root_dir = { vim.fn.expand('%') }
         end
 
         vim.lsp.start({
             name = 'clangd',
             cmd = { 'clangd' },
-            root_dir = root_dir[1],
+            root_dir = vim.fs.dirname(root_dir[1]),
         })
     end
 })
