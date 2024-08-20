@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd('FileType', {
             'compile_flags.txt',
             'configure.ac',
             '.git'
-        }, { upward = true, limit = vim.env.HOME })
+        }, { upward = true, stop = vim.env.HOME })
 
         if root_dir[1] == nil then
             root_dir = { vim.fn.expand('%') }

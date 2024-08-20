@@ -1,4 +1,3 @@
-local util = require "plugins.lsp.util"
 -- PHP
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { 'php' },

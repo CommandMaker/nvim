@@ -54,18 +54,6 @@ return {
             require('hardtime').setup {}
         end
     },
-    -- Class structure / Diagnostics and more
-    {
-        'folke/trouble.nvim',
-        config = function()
-            require('plugins.trouble')
-        end
-    },
-    -- RipGrep support
-    {
-        'duane9/nvim-rg',
-        config = false
-    },
     -- Xcode support
     {
         'wojciech-kulik/xcodebuild.nvim',
