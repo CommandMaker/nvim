@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
         vim.lsp.start({
             name = 'intelephense',
-            cmd = { 'intelephense', '--stdio' },
+            cmd = { 'phpactor', 'language-server' },
             root_dir = vim.fs.dirname(root_dir[1])
         })
     end

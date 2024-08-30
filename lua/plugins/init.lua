@@ -3,8 +3,8 @@ return {
         'folke/tokyonight.nvim',
         priority = 1000,
         config = function()
-            vim.cmd[[colorscheme tokyonight]]
             require('plugins.colorscheme')
+            vim.cmd[[colorscheme tokyonight]]
         end
     },
     -- File Manager
@@ -85,6 +85,21 @@ return {
         },
         config = function()
             require('plugins.flashsearch')
+        end
+    },
+    {
+        'ibhagwan/fzf-lua',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        opts = {
+            winopts = {
+                backdrop = 100
+            },
+            files = {
+                formatter = 'path.filename_first'
+            }
+        },
+        config = function()
+            require('plugins.fzf')
         end
     }
 }

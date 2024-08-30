@@ -23,7 +23,10 @@ key('c', '<C-k>', '<Up>', silent)
 key('c', '<C-l>', '<Right>', silent)
 
 -- File searching
-key('n', '<C-p>', ':Telescope find_files<CR>', silent)
+key('n', '<C-p>', ':FzfLua files<CR>', silent)
+
+-- Open FzfLua
+key('n', '<C-f>', ':FzfLua<CR>', silent)
 
 -- Search through Neovim help
 key('n', '<C-&>', ':Telescope help_tags<CR>', silent)
@@ -63,12 +66,12 @@ key('i', '<C-^>', '<C-o>^', silent)
 key('i', '<C-$>', '<C-o>$', silent)
 
 -- Resize the current split
-key('n', '<C-=>', ':vert resize +10<CR>', silent)
-key('n', '<C-+>', ':vert resize -10<CR>', silent)
+key('n', '<C-o>', ':vert resize +10<CR>', silent)
+key('n', '<C-l>', ':vert resize -10<CR>', silent)
 
 -- LSP keymaps
 key('n', 'gd', ':Telescope lsp_definitions<CR>', silent)
 key('n', 'gz', ':lua vim.diagnostic.open_float()<CR>', silent)
-key('n', 'ga', ':lua vim.lsp.buf.code_action()<CR>', silent)
+key('n', 'ga', ':FzfLua lsp_code_actions<CR>', silent)
 key('n', 'gf', ':lua vim.lsp.buf.format()<CR>', silent)
 key('n', 'gr', ':lua vim.lsp.buf.rename()<CR>', silent)
