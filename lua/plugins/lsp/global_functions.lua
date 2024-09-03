@@ -10,6 +10,6 @@ autocmd('LspAttach', {
             return
         end
 
-        vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
+        -- vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
     end
 })

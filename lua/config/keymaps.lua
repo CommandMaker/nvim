@@ -32,10 +32,10 @@ key('n', '<C-f>', ':FzfLua<CR>', silent)
 key('n', '<C-&>', ':Telescope help_tags<CR>', silent)
 
 -- Trigger autocomplete with Ctrl+Space
-key('i', '<C-Space>', '<C-x><C-o>', silent)
+-- key('i', '<C-Space>', '<C-x><C-o>', silent)
 
 -- Close omnifunc and go to next line when enter is pressed
-key('i', '<CR>', 'pumvisible() ? "<C-e><CR>" : "<CR>"', { expr = true, silent = true })
+-- key('i', '<CR>', 'pumvisible() ? "<C-e><CR>" : "<CR>"', { expr = true, silent = true })
 
 -- Exit terminal mode with escape (because default mapping is not working on my macOS)
 key('t', '<ESC>', '<C-\\><C-n>', silent)

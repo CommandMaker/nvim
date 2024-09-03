@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd('FileType', {
             name = 'cssls',
             cmd = { 'vscode-css-language-server', '--stdio' },
             root_dir = vim.fs.dirname(root_dir[1]),
-            capabilities = capabilities,
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
             init_options = {
                 provideFormatter = true
             },

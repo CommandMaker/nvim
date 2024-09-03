@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.lsp.start({
             name = 'clangd',
             cmd = { 'clangd' },
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
             root_dir = vim.fs.dirname(root_dir[1]),
         })
     end

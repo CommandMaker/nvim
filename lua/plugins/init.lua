@@ -101,5 +101,18 @@ return {
         config = function()
             require('plugins.fzf')
         end
+    },
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-path',
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip'
+        },
+        event = 'InsertEnter',
+        config = function()
+            require('plugins.completion')
+        end
     }
 }

@@ -21,7 +21,8 @@ vim.api.nvim_create_autocmd('FileType', {
                     quotePreference = 'single',
                     includeCompletionsForImportStatements = true
                 }
-            }
+            },
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
         })
     end
 })

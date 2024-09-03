@@ -14,6 +14,7 @@ vim.api.nvim_create_autocmd('FileType', {
             name = 'basedpyright',
             cmd = { 'basedpyright-langserver', '--stdio' },
             root_dir = vim.fs.dirname(root_dir[1]),
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
             settings = {
                 basedpyright = {
                     analysis = {

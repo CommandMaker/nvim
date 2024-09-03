@@ -13,7 +13,8 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.lsp.start({
             name = 'emmet-language-server',
             cmd = { 'emmet-language-server', '--stdio' },
-            root_dir = root_dir[1]
+            root_dir = root_dir[1],
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
         })
     end
 })
