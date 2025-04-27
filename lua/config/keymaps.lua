@@ -26,7 +26,7 @@ key('n', '<C-p>', ':FzfLua files<CR>', silent)
 key('n', '<C-f>', ':FzfLua<CR>', silent)
 
 -- Search through Neovim help
-key('n', '<C-&>', ':Telescope help_tags<CR>', silent)
+key('n', '<C-&>', ':FzfLua helptags<CR>', silent)
 
 -- Exit terminal mode with escape (because default mapping is not working on my macOS)
 key('t', '<ESC>', '<C-\\><C-n>', silent)
@@ -61,8 +61,10 @@ key('n', '<C-o>', ':vert resize +10<CR>', silent)
 key('n', '<C-l>', ':vert resize -10<CR>', silent)
 
 -- LSP keymaps
-key('n', 'gd', ':Telescope lsp_definitions<CR>', silent)
+key('n', 'gd', ':FzfLua lsp_definitions<CR>', silent)
 key('n', 'gz', ':lua vim.diagnostic.open_float()<CR>', silent)
 key('n', 'ga', ':FzfLua lsp_code_actions<CR>', silent)
 key('n', 'gf', ':lua vim.lsp.buf.format()<CR>', silent)
 key('n', 'gr', ':lua vim.lsp.buf.rename()<CR>', silent)
+
+key('n', '<leader>i', ':TSToolsAddMissingImports<CR>', silent)
