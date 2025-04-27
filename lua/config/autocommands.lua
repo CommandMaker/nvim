@@ -25,7 +25,7 @@ autocmd('BufWritePre', {
             return
         end
 
-        vim.cmd[[%s/\s\+$//e]]
+        vim.cmd [[%s/\s\+$//e]]
     end
 })
 
