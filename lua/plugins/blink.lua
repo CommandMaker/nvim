@@ -12,9 +12,9 @@ return {
         sources = {
             default = { 'lsp', 'path', 'snippets' },
         },
-        completion = {
-            ghost_text = { enabled = true },
-        }
+        -- completion = {
+        --     ghost_text = { enabled = true },
+        -- }
     },
     opts_extend = { 'sources.default' },
 }
