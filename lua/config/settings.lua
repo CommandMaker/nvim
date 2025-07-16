@@ -33,3 +33,7 @@ end
 -- Because on my keyboard mapping the @ key is next to w (thanks macOS), I always type :w@ and it creates a file named '@' at the root of my project
 -- So I just remap the :w@ command to :w
 vim.cmd('abbreviate w@ w')
+
+vim.diagnostic.config({
+    virtual_text = true
+})
