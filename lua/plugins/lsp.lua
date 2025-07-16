@@ -17,21 +17,13 @@ return {
 
                 client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
                     runtime = {
-                        -- Tell the language server which version of Lua you're using
-                        -- (most likely LuaJIT in the case of Neovim)
                         version = 'LuaJIT'
                     },
-                    -- Make the server aware of Neovim runtime files
                     workspace = {
                         checkThirdParty = false,
                         library = {
                             vim.env.VIMRUNTIME
-                            -- Depending on the usage, you might want to add additional paths here.
-                            -- "${3rd}/luv/library"
-                            -- "${3rd}/busted/library",
                         }
-                        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower and will cause issues when working on your own configuration (see https://github.com/neovim/nvim-lspconfig/issues/3189)
-                        -- library = vim.api.nvim_get_runtime_file("", true)
                     }
                 })
             end,
@@ -40,7 +32,41 @@ return {
             }
         })
 
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+        vim.lsp.config('html', {
+            capabilities = capabilities,
+            filetypes = { 'html', 'templ', 'twig', 'blade' }
+        })
+
+        vim.lsp.config('cssls', {
+            capabilities = capabilities
+        })
+
+        vim.lsp.config('emmet_ls', {
+            filetypes = { 'astro', 'css', 'eruby', 'html', 'htmldjango', 'javascriptreact', 'less', 'pug', 'sass', 'scss', 'svelte', 'typescriptreact', 'vue', 'twig', 'blade' }
+        })
+
         vim.lsp.enable('phpactor')
+        vim.lsp.enable('cssls')
+        vim.lsp.enable('html')
+        vim.lsp.enable('emmet_ls')
+
         vim.lsp.enable('basedpyright')
+        vim.lsp.enable('bashls')
+        vim.lsp.enable('docker_compose_language_service')
+        vim.lsp.enable('dockerls')
+        vim.lsp.enable('clangd')
+        vim.lsp.enable('ts_ls', false)
+
+        vim.lsp.config('laravel-ls', {
+            cmd = { 'laravel-ls' },
+            root_dir = vim.fn.getcwd(),
+            filetypes = { 'php', 'blade' }
+        })
+
+        vim.lsp.enable('laravel-ls')
+        vim.lsp.enable('texlab')
     end
 }

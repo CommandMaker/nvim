@@ -68,3 +68,36 @@ key('n', 'gf', ':lua vim.lsp.buf.format()<CR>', silent)
 key('n', 'gr', ':lua vim.lsp.buf.rename()<CR>', silent)
 
 key('n', '<leader>i', ':TSToolsAddMissingImports<CR>', silent)
+
+local listchars = {}
+
+-- Notes taking
+function Notes_keymaps()
+    local venn_enabled = vim.inspect(vim.b.venn_enabled)
+    local key_local = vim.api.nvim_buf_set_keymap
+
+    if venn_enabled == 'nil' then
+        vim.b.venn_enabled = true
+        vim.cmd [[setlocal ve=all]]
+        listchars = vim.opt.listchars
+        vim.opt.listchars = nil
+
+        key_local(0, 'n', 'H', '<C-v>h:VBox<CR>', { silent = true, noremap = true })
+        key_local(0, 'n', 'J', '<C-v>j:VBox<CR>', { silent = true, noremap = true })
+        key_local(0, 'n', 'K', '<C-v>k:VBox<CR>', { silent = true, noremap = true })
+        key_local(0, 'n', 'L', '<C-v>l:VBox<CR>', { silent = true, noremap = true })
+
+        key_local(0, 'v', 'f', ':VBox<CR>', { silent = true, noremap = true })
+    else
+        vim.cmd [[setlocal ve=]]
+        vim.opt.listchars = listchars
+        vim.api.nvim_buf_del_keymap(0, 'n', 'J')
+        vim.api.nvim_buf_del_keymap(0, 'n', 'K')
+        vim.api.nvim_buf_del_keymap(0, 'n', 'L')
+        vim.api.nvim_buf_del_keymap(0, 'n', 'H')
+        vim.api.nvim_buf_del_keymap(0, 'v', 'f')
+        vim.b.venn_enabled = nil
+    end
+end
+
+key('n', '<C-=>', ':lua Notes_keymaps()<CR>', silent)
