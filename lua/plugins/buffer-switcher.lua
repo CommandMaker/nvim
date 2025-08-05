@@ -1,5 +1,5 @@
 return {
-    'leath-dub/snipe.nvim',
+    'CommandMaker/snipe.nvim',
     opts = {
         ui = {
             position = 'cursor'
