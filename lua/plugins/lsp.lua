@@ -58,7 +58,7 @@ return {
         vim.lsp.enable('docker_compose_language_service')
         vim.lsp.enable('dockerls')
         vim.lsp.enable('clangd')
-        vim.lsp.enable('ts_ls', false)
+        vim.lsp.enable('ts_ls', false) -- The ts_ls server must be disabled manually or it will be automatically launch and conflicts with typescript-tools
 
         vim.lsp.config('laravel-ls', {
             cmd = { 'laravel-ls' },
@@ -68,5 +68,7 @@ return {
 
         vim.lsp.enable('laravel-ls')
         vim.lsp.enable('texlab')
+        vim.lsp.enable('vue_ls')
+        vim.lsp.enable('vtsls')
     end
 }
