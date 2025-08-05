@@ -7,6 +7,7 @@ key('n', '<S-q>', ':bd<CR>', silent)
 
 -- Open buffer switching
 key('n', 'gb', ':lua require("snipe").open_buffer_menu()<CR>', silent)
+key('n', '<C-b>', ':FzfLua buffers<CR>', silent)
 
 -- Navigation in insert mode
 key('i', '<C-h>', '<Left>', silent)
@@ -18,6 +19,8 @@ key('c', '<C-h>', '<Left>', silent)
 key('c', '<C-j>', '<Down>', silent)
 key('c', '<C-k>', '<Up>', silent)
 key('c', '<C-l>', '<Right>', silent)
+
+key('i', 'jk', '<esc>', silent)
 
 -- File searching
 key('n', '<C-p>', ':FzfLua files<CR>', silent)
