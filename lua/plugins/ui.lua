@@ -53,7 +53,16 @@ return {
             'nvim-tree/nvim-web-devicons'
         },
         opts = {
-            fzf_colors = true
+            fzf_colors = true,
+            files = {
+                formatter = 'path.filename_first',
+                fd_opts = [[--color=never --hidden --type f --type l --exclude .git --exclude vendor --exclude node_modules --exclude vendor --exclude __pycache__ --exclude __init__.py]]
+            },
+            keymap = {
+                fzf = {
+                    ['alt-q'] = 'select-all+accept'
+                }
+            }
         }
     }
 }
