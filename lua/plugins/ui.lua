@@ -5,8 +5,11 @@ return {
         config = function()
             local ash = require('ash')
 
-            ash.setup()
-
+            ash.setup({
+                plugins = {
+                    indent_blankline = false
+                }
+            })
             ash.load()
 
             vim.api.nvim_set_hl(0, 'NvimTreeFolderArrowClosed', { link = 'NvimTreeFolderName' })
@@ -86,7 +89,6 @@ return {
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         opts = {
             options = {
-                -- colored = false,
                 globalstatus = true,
                 section_separators = '',
                 component_separators = ''
