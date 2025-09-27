@@ -3,10 +3,16 @@ return {
     {
         'bjarneo/ash.nvim',
         config = function()
-            vim.cmd('colorscheme ash')
+            local ash = require('ash')
+
+            ash.setup()
+
+            ash.load()
 
             vim.api.nvim_set_hl(0, 'NvimTreeFolderArrowClosed', { link = 'NvimTreeFolderName' })
             vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { link = 'NvimTreeFolderName' })
+            vim.api.nvim_set_hl(0, 'IblIndent', { fg = '#626262' })
+            vim.api.nvim_set_hl(0, 'IblScope', { fg = '#9e9e9e' })
         end
     },
 
@@ -24,7 +30,7 @@ return {
                 group_empty = false,
                 indent_markers = {
                     enable = true
-                }
+                },
             },
             filters = {
                 dotfiles = true

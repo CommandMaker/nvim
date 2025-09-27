@@ -77,17 +77,32 @@ return {
             }
         end
     },
+
+    -- Text objects for better movements
     {
         'CommandMaker/nvim-treesitter-textobjects',
         dependencies = {
             'nvim-treesitter/nvim-treesitter'
         }
     },
+
+    -- Auto-tag html
     {
         'windwp/nvim-ts-autotag',
         otps = {
             opts = {
                 enable_close_on_slash = true
+            }
+        }
+    },
+
+    -- Indentation marker
+    {
+        'lukas-reineke/indent-blankline.nvim',
+        main = 'ibl',
+        opts = {
+            indent = {
+                char = '│'
             }
         }
     }
