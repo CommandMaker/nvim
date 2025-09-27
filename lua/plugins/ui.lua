@@ -2,11 +2,7 @@ return {
     -- Colorscheme
     {
         'bjarneo/ash.nvim',
-        opts = {
-        },
-        config = function(_, opts)
-            require('ash').setup(opts)
-
+        config = function()
             vim.cmd('colorscheme ash')
 
             vim.api.nvim_set_hl(0, 'NvimTreeFolderArrowClosed', { link = 'NvimTreeFolderName' })
