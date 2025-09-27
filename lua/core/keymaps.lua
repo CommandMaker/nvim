@@ -44,5 +44,14 @@ key('n', '<leader>q', ':bd<CR>', silent)
 -- File picker
 key('n', '<leader>f', ':FzfLua files<CR>', silent)
 
--- Grep in project
-key('n', '<leader>g', ':FzfLua live_grep<CR>', silent)
+-- Move between diagnostics
+key('n', '<leader>dn', ']d', { remap = true })
+key('n', '<leader>dN', '[d', { remap = true })
+key('n', '<leader>df', '[D', { remap = true })
+key('n', '<leader>dl', ']D', { remap = true })
+
+-- LSP keymaps
+key('n', '<leader>gf', vim.lsp.buf.format, silent)
+key('n', '<leader>gz', '<C-w>d', { remap = true })
+key('n', '<leader>gd', vim.lsp.buf.definition, silent)
+key('n', '<leader>ga', vim.lsp.buf.code_action, silent)

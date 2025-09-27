@@ -16,10 +16,11 @@ local options = {
     splitright     = true,                                        -- Vertical split will be at right
     termguicolors  = true,                                        -- Correct terminal colors
     undofile       = true,                                        -- Set undo to file
-    cursorline     = true,                                        -- Highlight current line
+    cursorline     = false,                                       -- Highlight current line
     scrolloff      = 8,                                           -- Keep space when scrolling
     completeopt    = 'menu,menuone,popup,noinsert,noselect',      -- Set the omnicomplete options to show the completion menu
-    foldmethod     = 'manual'                                     -- Enable manual creation of folds
+    foldmethod     = 'manual',                                    -- Enable manual creation of folds
+    mouse          = ''                                           -- Disable mouse completely
 }
 
 for i, j in pairs(options) do
@@ -29,6 +30,12 @@ end
 -- Set leader and local leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
+
+-- Set diagnostic config
+vim.diagnostic.config({
+    virtual_text = true,
+    signs = false
+})
 
 -- Because on my keyboard mapping the @ key is next to w (thanks macOS), I always type :w@ and it creates a file named '@' at the root of my project
 -- So I just remap the :w@ command to :w
