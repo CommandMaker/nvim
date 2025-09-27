@@ -2,8 +2,15 @@ return {
     -- Colorscheme
     {
         'bjarneo/ash.nvim',
+        opts = {
+        },
         config = function(_, opts)
+            require('ash').setup(opts)
+
             vim.cmd('colorscheme ash')
+
+            vim.api.nvim_set_hl(0, 'NvimTreeFolderArrowClosed', { link = 'NvimTreeFolderName' })
+            vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { link = 'NvimTreeFolderName' })
         end
     },
 
@@ -14,13 +21,18 @@ return {
             'nvim-tree/nvim-web-devicons'
         },
         opts = {
-           renderer = {
-               group_empty = false,
-
-           },
-           filters = {
-               dotfiles = true
-           }
+            view = {
+                side = 'right'
+            },
+            renderer = {
+                group_empty = false,
+                indent_markers = {
+                    enable = true
+                }
+            },
+            filters = {
+                dotfiles = true
+            }
         },
         config = function(_, opts)
             -- Disable netrw
