@@ -42,7 +42,7 @@ return {
                     lookahead = true,
                     keymaps = {
                         ['ic'] = '@assignment.lhs',
-                        ['ix'] = '@assignment.rhs',
+                        ['iv'] = '@assignment.rhs',
                         ['ir'] = '@return.inner',
                         ['ar'] = '@return.outer',
                         ['af'] = '@function.outer',
@@ -54,10 +54,10 @@ return {
                 swap = {
                     enable = true,
                     swap_next = {
-                        ['<leader>a'] = '@parameter.inner',
+                        ['<leader>n'] = '@parameter.inner',
                     },
                     swap_previous = {
-                        ['<leader>A'] = '@parameter.inner'
+                        ['<leader>N'] = '@parameter.inner'
                     }
                 }
             }
