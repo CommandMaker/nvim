@@ -43,6 +43,23 @@ return {
             { 'mason-org/mason.nvim', opts = {} },
             'neovim/nvim-lspconfig',
         },
+        config = function (_, opts)
+            local light_ensure_installed = {
+                'lua',
+                'basedpyright',
+                'clangd'
+            }
+
+            local config_opts = opts
+
+            if vim.env.LIGHTWEIGHT ~= nil then
+                config_opts = {
+                    ensure_installed = light_ensure_installed
+                }
+            end
+
+            require('mason-lspconfig').setup(config_opts)
+        end
     },
 
     -- Completion system

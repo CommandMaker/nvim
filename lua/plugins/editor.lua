@@ -63,6 +63,17 @@ return {
             }
         },
         config = function(_, opts)
+            local ensure_installed_light = {
+                'python',
+                'c',
+                'cpp',
+                'lua'
+            }
+
+            if vim.env.LIGHTWEIGHT ~= nil then
+                opts['ensure_installed'] = ensure_installed_light
+            end
+
             require('nvim-treesitter.configs').setup(opts)
 
 
