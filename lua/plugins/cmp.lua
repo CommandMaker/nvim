@@ -45,7 +45,7 @@ return {
         },
         config = function (_, opts)
             local light_ensure_installed = {
-                'lua',
+                'lua_ls',
                 'basedpyright',
                 'clangd'
             }
