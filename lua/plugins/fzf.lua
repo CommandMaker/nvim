@@ -1,0 +1,23 @@
+----------------------------------------------
+--             Fzf (File picker)            --
+----------------------------------------------
+
+local status, fzf = pcall(require, 'fzf-lua')
+
+if not status then
+    return
+end
+
+fzf.setup {
+    fzf_colors = true,
+    files = {
+        formatter = 'path.filename_first',
+        fd_opts = [[--color=never --hidden --type f --type l --exclude .git --exclude vendor --exclude node_modules --exclude vendor --exclude __pycache__ --exclude __init__.py]],
+        no_ignore = true,
+    },
+    keymap = {
+        fzf = {
+            ['alt-q'] = 'select-all+accept'
+        }
+    }
+}
