@@ -3,7 +3,8 @@
 ----------------------------------------------
 
 local server_configs = {
-    lua_ls = require('plugins.lsp_servers.luals')
+    lua_ls = require('plugins.lsp_servers.luals'),
+    vtsls = require('plugins.lsp_servers.vtsls')
 }
 
 local status, mason = pcall(require, 'mason')
