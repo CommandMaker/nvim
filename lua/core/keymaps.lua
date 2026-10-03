@@ -39,7 +39,7 @@ key('v', 'J', ':move \'>+1<CR>gv-gv', silent)
 key('n', '<leader>e', ':NvimTreeToggle<CR>', silent)
 
 -- Close buffer
-key('n', '<leader>q', ':bd<CR>', silent)
+key('n', '<leader>q', ':bp<bar>sp<bar>bn<bar>bd<CR>', silent)
 
 -- File picker
 key('n', '<leader>f', ':FzfLua files<CR>', silent)
