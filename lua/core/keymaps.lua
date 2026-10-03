@@ -41,8 +41,23 @@ key('n', '<leader>e', ':NvimTreeToggle<CR>', silent)
 -- Close buffer
 key('n', '<leader>q', ':bp<bar>sp<bar>bn<bar>bd<CR>', silent)
 
+-- Go to the next buffer
+key('n', '<leader>n', ':bn<CR>', silent)
+
+-- Go to the previous buffer
+key('n', '<leader>p', ':bp<CR>', silent)
+
+-- Go to the last edited buffer
+key('n', '<leader>b', ':b#<CR>', silent)
+
+-- Open the buffer list
+key('n', '<leader>a', ':FzfLua buffers<CR>', silent)
+
 -- File picker
 key('n', '<leader>f', ':FzfLua files<CR>', silent)
+
+-- Live Grep
+key('n', '<leader>g', ':FzfLua live_grep<CR>', silent);
 
 -- Move between diagnostics
 key('n', '<leader>dn', ']d', { remap = true })
