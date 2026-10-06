@@ -8,6 +8,12 @@ local vue_plugin = {
 
 return {
     settings = {
+        typescript = {
+            preferences = {
+                quoteStyle = 'single',
+                importModuleSpecifier = 'non-relative'
+            }
+        },
         vtsls = {
             tsserver = {
                 globalPlugins = {
